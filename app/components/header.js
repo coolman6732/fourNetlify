@@ -58,7 +58,7 @@ export default function Header() {
             <header className={`${styles.header} ${isScrolled ? styles.fixNav : ''}`}>
                 <div className={styles.inner}>
                     <a href="#" className={`${yesevaOne.className} ${styles.logo}`}>Insane</a>
-                    <ul>
+                    <ul className={styles["nav"]}>
                         <li>
                             <a
                                 href="#"

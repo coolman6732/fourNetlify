@@ -10,7 +10,7 @@ export default function Footer() {
                 <div className={styles.inner}>
                     <div className={styles.column}>
                         <h2>Contact</h2>
-                        <ul>
+                        <ul className={styles["companyInfo"]}>
                             <li>Insane Technology Co., Limited</li>
                             <li>email  gloria.xiao@Insane.com.tw</li>
                             <li>Tel  +886 2 2788-3611</li>

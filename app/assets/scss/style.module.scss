@@ -6,9 +6,7 @@ $font-yahei: Arial, Helvetica, \5FAE\8EDF\6B63\9ED1\9AD4, sans-serif;
 $font-ming: Arial, Helvetica, \7EC6\660E\4F53, sans-serif;
 $img-path: "/images";
 
-ul {
-    lost-utility: clearfix;
-}
+
 
 .inner {
     width: span(14 of 14);
@@ -46,7 +44,7 @@ ul {
         background: rgba(255, 255, 255, 0.6);
     }
 
-    ul {
+    .nav {
         margin-left: auto;
         flex: 0 0 500px;
 
@@ -70,7 +68,10 @@ ul {
             }
         }
     }
+
 }
+
+
 
 .banner {
     h2.title {
@@ -230,7 +231,7 @@ footer {
     }
 
     ul.footerMu {
-        margin-top: 20px;
+        margin-top: 40px;
         font-family: "Noto Serif TC", serif;
 
         li {
@@ -251,7 +252,9 @@ footer {
             flex: 0 0 60%;
         }
 
-        ul {
+        .companyInfo {
+            margin-top: 40px;
+
             li {
                 line-height: 1.7em;
             }
