@@ -4,24 +4,44 @@ import Image from "next/image";
 import styles from "./assets/css/style.module.css";
 import "./assets/css/masterslider.css";
 
+const loadScript = (src, onLoad) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = onLoad;
+    document.body.appendChild(script);
+};
+
+
 export default function Home() {
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const slider = new MasterSlider();
-            slider.setup('masterslider', {
-                width: 1680,
-                height: 700,
-                fullwidth: true,
-                autoHeight: true,
-                mouse: true,
-                view: "basic"
-            });
+            loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js', () => {
 
-            return () => {
-                if (slider && typeof slider.destroy === 'function') {
-                    slider.destroy();
-                }
-            };
+                loadScript('/js/animatescroll.js');
+
+                loadScript('/js/masterslider.js', () => {
+                    const slider = new MasterSlider();
+                    slider.setup('masterslider', {
+                        width: 1680,
+                        height: 700,
+                        fullwidth: true,
+                        autoHeight: true,
+                        mouse: true,
+                        view: 'basic',
+                    });
+
+                    loadScript('/js/wow.min.js', () => {
+                        const wow = new WOW({
+                            boxClass: 'wow',
+                            animateClass: 'animated',
+                            offset: 0,
+                            mobile: true,
+                            live: true,
+                        });
+                        wow.init();
+                    });
+                });
+            });
         }
     }, []);
 
@@ -57,8 +77,8 @@ export default function Home() {
                         </div>
 
                         <div className={styles.right}>
-                            <Image className={`${styles["gameIcn"]}`} src="/images/row1Icn.png" alt="" width={407} height={575} layout="intrinsic" />
-                            <Image className={`${styles["icnBg"]}`} src="/images/row1IcnBg.png" alt="" width={614} height={528} layout="intrinsic" />
+                            <Image className={`${styles["gameIcn"]}`} src="/images/row1Icn.png" alt="" width={407} height={575} />
+                            <Image className={`${styles["icnBg"]}`} src="/images/row1IcnBg.png" alt="" width={614} height={528} />
                         </div>
 
                     </div>
@@ -67,8 +87,8 @@ export default function Home() {
                 <dd id='Target' className={`${styles.row2} ${styles.ddBg} scroll-target `}>
                     <div className={styles.inner}>
                         <div className={styles.left}>
-                            <Image className={`${styles["gameIcn"]}`} src="/images/row2Icn.png" alt="" width={402} height={545} layout="intrinsic" />
-                            <Image className={`${styles["icnBg"]}`} src="/images/row2IcnBg.png" alt="" width={614} height={528} layout="intrinsic" />
+                            <Image className={`${styles["gameIcn"]}`} src="/images/row2Icn.png" alt="" width={402} height={545} />
+                            <Image className={`${styles["icnBg"]}`} src="/images/row2IcnBg.png" alt="" width={614} height={528} />
                         </div>
                         <div className={styles.right}>
                             <h2 className={styles.title}>公司目標 <b>Target</b></h2>
